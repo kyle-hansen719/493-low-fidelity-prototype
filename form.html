@@ -10,6 +10,7 @@
         <div class="col-lg-5 col-md-8 mx-auto">
             <div class="card">
                 <div class="card-body">
+                    <!-- Tabs -->
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Overview</button>
@@ -21,37 +22,65 @@
                             <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Skeletal</button>
                         </li>
                     </ul>
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <div class="row">
-                                <div class="col-8">
+                    <!-- Tab Content -->
+                    <div class="row">
+                        <div class="col-lg-8 d-flex justify-content-center">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                     <img class="img-fluid" src="https://www.nicepng.com/png/detail/384-3847140_human-body-comments-human-clipart.png"></img>
                                 </div>
-                                <div class="col-4">
-                                    <form>
-                                        <div class="form-group">
-                                          <label for="input1">Form Input 1</label>
-                                          <input type="text" class="form-control" id="input1">
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="input2">Form Input 2</label>
-                                          <input type="text" class="form-control" id="input2">
-                                        </div>
-                                        <p class="text-danger">Add more form fields and label them here</p>
-                                        <label for="formControlRange">Pain Level</label>
-                                        <input type="range" class="custom-range" min="0" max="10" id="formControlRange">
-                                      </form>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                    <img class="img-fluid" src="https://media.istockphoto.com/id/153816392/photo/man-muscular-system-anterior-view-isolated.jpg?s=612x612&w=0&k=20&c=OmIRgIx_7sUq9IN13PMY2oanLqLoozmIdxD-tUwXkds="></img>
+                                </div>
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                    <img class="img-fluid" src="https://easydrawingart.com/wp-content/uploads/2019/08/How-to-draw-skeleton.jpg"></img>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+                        <!-- Form Content -->
+                        <div class="col-lg-4">
+                            <!-- EDIT THIS PART OF THE HTML TO CHANGE THE FORM-->
+                            <form>
+                                <h5 class="text-danger">Title of body part/area selected</h5>
+                                <div class="form-group">
+                                  <label for="input1">Form Input 1</label>
+                                  <input type="text" class="form-control" id="input1">
+                                </div>
+                                <div class="form-group">
+                                  <label for="input2">Form Input 2</label>
+                                  <input type="text" class="form-control" id="input2">
+                                </div>
+                                <p class="text-danger">Add more form fields and label them here</p>
+                                <label for="formControlRange">Pain Level</label>
+                                <input type="range" class="custom-range" min="0" max="10" id="formControlRange">
+                              </form>
+                              <!-- END OF FORM HTML-->
+                        </div>
                     </div>
-                      
-                    
                 </div>
                 <div class="card-footer d-flex justify-content-end">
-                    <button class="btn btn-primary">Submit Form</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadModal">Download Form</button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Your download should be completed soon. </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>You can present this downloaded file to a healthcare professional for evaluation. Please attach this file in an email sent to your healthcare professional or show them your response on this website.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
