@@ -6,84 +6,112 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <body>
-    <div class="row justify-content-lg-center mt-5">
-        <div class="col-lg-5 col-md-8 mx-auto">
-            <div class="card">
-                <div class="card-body">
-                    <!-- Tabs -->
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Overview</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Muscular</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Skeletal</button>
-                        </li>
-                    </ul>
-                    <!-- Tab Content -->
-                    <div class="row">
-                        <div class="col-lg-8 d-flex justify-content-center">
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                    <img class="img-fluid" src="https://www.nicepng.com/png/detail/384-3847140_human-body-comments-human-clipart.png"></img>
-                                </div>
-                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                    <img class="img-fluid" src="https://media.istockphoto.com/id/153816392/photo/man-muscular-system-anterior-view-isolated.jpg?s=612x612&w=0&k=20&c=OmIRgIx_7sUq9IN13PMY2oanLqLoozmIdxD-tUwXkds="></img>
-                                </div>
-                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                                    <img class="img-fluid" src="https://easydrawingart.com/wp-content/uploads/2019/08/How-to-draw-skeleton.jpg"></img>
+    <!-- Start Navbar -->
+    <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Pain Indicator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Fix navbar links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Landing Page</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Form</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Visualizer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-warning" href="#">Remember to Fix Navbar HREFs</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid">
+        <div class="row justify-content-lg-center mt-4">
+            <div class="col-lg-5 col-md-8 mx-auto">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <!-- Tabs -->
+                        <ul class="nav nav-pills mb-3" id="tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="overview-tab" data-toggle="pill" data-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">Overview</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="muscular-tab" data-toggle="pill" data-target="#muscular" type="button" role="tab" aria-controls="muscular" aria-selected="false">Muscular</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="skeletal-tab" data-toggle="pill" data-target="#skeletal" type="button" role="tab" aria-controls="skeletal" aria-selected="false">Skeletal</button>
+                            </li>
+                        </ul>
+                        <!-- Tab Content -->
+                        <div class="row">
+                            <div class="col-lg-8 d-flex justify-content-center">
+                                <div class="tab-content" id="tabContent">
+                                    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                                        <img class="img-fluid" src="https://www.nicepng.com/png/detail/384-3847140_human-body-comments-human-clipart.png"></img>
+                                    </div>
+                                    <div class="tab-pane fade" id="muscular" role="tabpanel" aria-labelledby="muscular-tab">
+                                        <img class="img-fluid" src="https://media.istockphoto.com/id/153816392/photo/man-muscular-system-anterior-view-isolated.jpg?s=612x612&w=0&k=20&c=OmIRgIx_7sUq9IN13PMY2oanLqLoozmIdxD-tUwXkds="></img>
+                                    </div>
+                                    <div class="tab-pane fade" id="skeletal" role="tabpanel" aria-labelledby="skeletal-tab">
+                                        <img class="img-fluid" src="https://easydrawingart.com/wp-content/uploads/2019/08/How-to-draw-skeleton.jpg"></img>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Form Content -->
-                        <div class="col-lg-4">
-                            <!-- EDIT THIS PART OF THE HTML TO CHANGE THE FORM-->
-                            <form>
-                                <h5 class="text-danger">Title of body part/area selected</h5>
-                                <div class="form-group">
-                                  <label for="input1">Form Input 1</label>
-                                  <input type="text" class="form-control" id="input1">
-                                </div>
-                                <div class="form-group">
-                                  <label for="input2">Form Input 2</label>
-                                  <input type="text" class="form-control" id="input2">
-                                </div>
-                                <p class="text-danger">Add more form fields and label them here</p>
-                                <label for="formControlRange">Pain Level</label>
-                                <input type="range" class="custom-range" min="0" max="10" id="formControlRange">
-                              </form>
-                              <!-- END OF FORM HTML-->
+                            <!-- Form Content -->
+                            <div class="col-lg-4">
+                                <!-- EDIT THIS PART OF THE HTML TO CHANGE THE FORM-->
+                                <form>
+                                    <h5 class="text-danger">Title of body part/area selected</h5>
+                                    <div class="form-group">
+                                      <label for="input1">Form Input 1</label>
+                                      <input type="text" class="form-control" id="input1">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="input2">Form Input 2</label>
+                                      <input type="text" class="form-control" id="input2">
+                                    </div>
+                                    <p class="text-danger">Add more form fields and label them here</p>
+                                    <label for="formControlRange">Pain Level</label>
+                                    <input type="range" class="custom-range" min="0" max="10" id="formControlRange">
+                                  </form>
+                                  <!-- END OF FORM HTML-->
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card-footer d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadModal">Download Form</button>
-                    
-                    <!-- Modal -->
-                    <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Your download should be completed soon. </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                    <div class="card-footer d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadModal">Download Form</button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Your download should be completed soon. </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>You can present this downloaded file to a healthcare professional for evaluation. Please attach this file in an email sent to your healthcare professional or show them your response on this website.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <p>You can present this downloaded file to a healthcare professional for evaluation. Please attach this file in an email sent to your healthcare professional or show them your response on this website.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
-                        </div>
+        
                     </div>
-
                 </div>
             </div>
         </div>
+    </div>
         
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
