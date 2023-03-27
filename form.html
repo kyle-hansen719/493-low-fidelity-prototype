@@ -67,15 +67,22 @@
                             <div class="col-lg-4">
                                 <!-- EDIT THIS PART OF THE HTML TO CHANGE THE FORM-->
                                 <!-- Note: this form is shared between the overview, muscular, and skeletal tabs, but if you don't want this just ask me to change it -kyle -->
-                                <h5 class="text-danger">Title of body part/area selected</h5>
-                                <p class="text-danger">maybe add a dropdown (select menu) here to list all parts of the body the user can add comments to</p>
+                                <!--<h5 class="text-danger">Title of body part/area selected</h5>-->
+                                <!--<p class="text-danger">maybe add a dropdown (select menu) here to list all parts of the body the user can add comments to</p>-->
+                                <select id="body-part" name="body-part-selector">
+                                    <label for="body-part">Choose a body part:</label>
+                                    <option value="Head">Head</option>
+                                    <option value="Torso">Torso</option>
+                                    <option value="Arms">Arms</option>
+                                    <option value="Legs">Legs</option>
+                                </select>
                                 <form>
                                     <div class="form-group">
-                                      <label for="input1">Form Input 1</label>
+                                      <label for="input1">Please briefly describe your symptoms.</label>
                                       <input type="text" class="form-control" id="input1">
                                     </div>
                                     <div class="form-group">
-                                      <label for="input2">Form Input 2</label>
+                                      <label for="input2">How long have you had these symptoms?</label>
                                       <input type="text" class="form-control" id="input2">
                                     </div>
                                     <p class="text-danger">Add more form fields and label them here</p>
