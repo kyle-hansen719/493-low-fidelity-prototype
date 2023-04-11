@@ -5,6 +5,10 @@
     <title>Form</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <!-- boostrap slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css" integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <!-- Start Navbar -->
@@ -22,90 +26,127 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="./form.html">Form</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./form-view.html">Visualizer</a>
-                </li>
             </ul>
         </div>
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid">
         <div class="row justify-content-lg-center mt-4">
-            <div class="col-lg-5 col-md-8 mx-auto">
+            <div class="col-lg-6 col-md-8 mx-auto">
                 <div class="card shadow">
                     <div class="card-body">
                         <!-- Tabs -->
                         <ul class="nav nav-pills mb-3" id="tab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="overview-tab" data-toggle="pill" data-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">Overview</button>
+                                <button class="nav-link active" id="overview-tab" data-toggle="pill" type="button" aria-selected="true">Overview</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="muscular-tab" data-toggle="pill" data-target="#muscular" type="button" role="tab" aria-controls="muscular" aria-selected="false">Muscular</button>
+                                <button class="nav-link" id="muscular-tab" data-toggle="pill" type="button" aria-selected="false">Muscular</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="skeletal-tab" data-toggle="pill" data-target="#skeletal" type="button" role="tab" aria-controls="skeletal" aria-selected="false">Skeletal</button>
+                                <button class="nav-link" id="skeletal-tab" data-toggle="pill" type="button" aria-selected="false">Skeletal</button>
                             </li>
                         </ul>
                         <!-- Tab Content -->
                         <div class="row">
                             <div class="col-lg-8 d-flex justify-content-center">
-                                <div class="tab-content" id="tabContent">
-                                    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-                                        <img class="img-fluid" src="https://www.nicepng.com/png/detail/384-3847140_human-body-comments-human-clipart.png"></img>
-                                    </div>
-                                    <div class="tab-pane fade" id="muscular" role="tabpanel" aria-labelledby="muscular-tab">
-                                        <img class="img-fluid" src="https://media.istockphoto.com/id/153816392/photo/man-muscular-system-anterior-view-isolated.jpg?s=612x612&w=0&k=20&c=OmIRgIx_7sUq9IN13PMY2oanLqLoozmIdxD-tUwXkds="></img>
-                                    </div>
-                                    <div class="tab-pane fade" id="skeletal" role="tabpanel" aria-labelledby="skeletal-tab">
-                                        <img class="img-fluid" src="https://easydrawingart.com/wp-content/uploads/2019/08/How-to-draw-skeleton.jpg"></img>
-                                    </div>
-                                </div>
+                                <div id="overviewCanvas" class="w-100" style="height: 600px;"></div>
                             </div>
                             <!-- Form Content -->
                             <div class="col-lg-4">
-                                <!--<h5 class="text-danger">Title of body part/area selected</h5>-->
-                                <!--<p class="text-danger">maybe add a dropdown (select menu) here to list all parts of the body the user can add comments to</p>-->
-                                <label for="body-part">Choose a body part:</label>
-                                <select id="body-part" name="body-part-selector"> 
-                                    <option value="Head">Head</option>
-                                    <option value="Torso">Torso</option>
-                                    <option value="Arms">Arms</option>
-                                    <option value="Legs">Legs</option>
-                                </select>
-                                <br></br> <!-- Change later -->
-                                <form>
-                                    <label for="formControlRange">Level of Pain</label>
-                                    <input type="range" class="custom-range" min="0" max="10" id="formControlRange">
-                                    <label for="formControlRange">Sharpness of Pain</label>
-                                    <input type="range" class="custom-range" min="0" max="10" id="formControlRange">
-                                    <div class="form-group">
-                                      <label for="input1">Please briefly describe your symptoms.</label>
-                                      <input type="text" class="form-control" id="input1">
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="input2">How long have you had these symptoms?</label>
-                                      <input type="text" class="form-control" id="input2">
-                                    </div>
-                                  </form>
-                                  <!-- END OF FORM HTML-->
+                                <label for="body-part" class="mr-2">Choose a body part:</label>
+                                <select id="body-part-select" name="body-part-selector"><!-- populated with javascript --></select>
+
+                                <form class="mt-3">
+                                  <label for="level-range">Level of Pain</label>
+                                  <input id="level-range" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+                                  <label for="sharpness-range" class="mt-3">Sharpness of Pain</label>
+                                  <input id="sharpness-range" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+
+                                  <div class="form-group mt-3 mb-2">
+                                    <label for="description-field">Please briefly describe your symptoms.</label>
+                                    <textarea id="description-field" class="form-control" rows="3"></textarea>
+                                  </div>
+                                  <div class="form-group mb-2">
+                                    <label for="length-field">How long have you had these symptoms?</label>
+                                    <textarea id="length-field" class="form-control" rows="3"></textarea>
+                                  </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadModal">Download Form</button>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <div>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#clearModal">Clear Form</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-md-end">
+                                    <button type="button" class="btn btn-secondary mr-2" data-toggle="modal" id="reset-camera-button">Reset Camera</button>
+                                    <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#viewModal" id="view-form-data-button">View Form Data</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#downloadModal" id="download-button">Download Form</button>
+                                </div>
+                            </div>
+                        </div>
                         
-                        <!-- Modal -->
-                        <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+                        
+                        <!-- Clear Form Modal -->
+                        <div class="modal fade" id="clearModal" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Your download should be completed soon. </h5>
+                                    <h5 class="modal-title">Are you sure that you want to clear the form data? This action cannot be undone.</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="row w-100">
+                                        <div class="col-md-6">
+                                            <button class="btn btn-danger" id="clear-form-button" data-dismiss="modal">Clear Form</button>
+                                        </div>
+                                        <div class="col-md-6 d-flex justify-content-md-end">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- View Data Modal -->
+                        <div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Form Data</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="display-form-data-body"></div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Download Modal -->
+                        <div class="modal fade" id="downloadModal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Your download should be completed soon.</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>You can present this downloaded file to a healthcare professional for evaluation. Please attach this file in an email sent to your healthcare professional or show them your response on this website.</p>
+                                    <a style="display: none;" id="download-anchor"><!-- used to download the file with javascript --></a>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -117,8 +158,323 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
+
+
+    <!-- For Overview Model -->
+    <script src='node_modules/three/build/three.min.js'></script> <!-- This script tag allows threex to work -->
+    <script src="threex.domevents.js"></script>
+    <script type="module">
+        // parse body type and email
+        let urlParams = new URLSearchParams(window.location.search)
+        let email = urlParams.get('email') ?? ""
+        let isMaleBodyType = urlParams.get('bodytype') != 2
+
+
+        let bodyParts = ["Head", "Abdomen", "Arms", "Hands", "Legs", "Feet", "Back"]
+
+        // create body object for tracking form data
+        let body = { email: email }
+        const InitilializeBodyObject = () => {
+            bodyParts.forEach(bodyPartName => body[bodyPartName] = { name: bodyPartName, level: 0, sharpness: 0, symptomDescription: "", symptonLength: "" })
+        }
+        InitilializeBodyObject()
+
+        // populate body parts drop down
+        let bodyPartSelect = document.getElementById('body-part-select')
+        bodyParts.forEach(bodyPartName => bodyPartSelect.innerHTML += `<option value=\"${bodyPartName}\">${bodyPartName}</option>`)
+
+        // initialize sliders
+        var levelSlider = new Slider('#level-range', {
+        	formatter: value => value
+        });
+        var sharpnessSlider = new Slider('#sharpness-range', {
+        	formatter: value => value
+        });
+        
+
+        // reset form fields
+        document.getElementById('description-field').value = ""
+        let lengthField = document.getElementById('length-field').value = ""
+
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+
+        let renderWindow = document.getElementById('overviewCanvas')
+
+        let sizes = {
+            width: renderWindow.clientWidth,
+            height: renderWindow.clientHeight
+        }
+
+        // SCENE, CAMERA, RENDERER
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
+        camera.position.set(0, 1, 4)
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(sizes.width, sizes.height);
+        renderWindow.appendChild(renderer.domElement);
+        renderer.setClearColor(0xd3d3d3, 1)     // sets background color
+
+        let DomEvents = new THREEx.DomEvents(camera, renderer.domElement)
+
+        const saveCurrentBodyPartData = () => {
+            let descriptionField = document.getElementById('description-field')
+            let lengthField = document.getElementById('length-field')            
+
+            // save previous form values
+            body[currentBodyPart].level = levelSlider.getValue()
+            body[currentBodyPart].sharpness = sharpnessSlider.getValue()
+            body[currentBodyPart].symptomDescription = descriptionField.value
+            body[currentBodyPart].symptonLength = lengthField.value
+        }
+
+        const updateFormData = (newBodyPartName) => {
+            let descriptionField = document.getElementById('description-field')
+            let lengthField = document.getElementById('length-field')            
+
+            saveCurrentBodyPartData();
+
+            // set new form values
+            levelSlider.setValue(body[newBodyPartName].level)
+            sharpnessSlider.setValue(body[newBodyPartName].sharpness) 
+            descriptionField.value = body[newBodyPartName].symptomDescription
+            lengthField.value = body[newBodyPartName].symptonLength
+            bodyPartSelect.value = newBodyPartName
+
+            // change mesh colors of selected body parts
+            scene.getObjectByName(currentBodyPart).material = nodeMaterial
+            scene.getObjectByName(newBodyPartName).material = selectedMaterial
+
+            currentBodyPart = newBodyPartName
+        }
+
+        // MESHES
+        const nodeGeometry = new THREE.SphereGeometry(0.1,32,16)
+        const nodeMaterial = new THREE.MeshBasicMaterial({color: 0xff0000})
+        const selectedMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00})
+
+        // head
+        let currentBodyPart = body.Head.name
+        const headMesh = new THREE.Mesh(nodeGeometry, selectedMaterial)
+        headMesh.position.set(0, 2.2, 0.25)
+        headMesh.name = body.Head.name
+        DomEvents.addEventListener(headMesh, 'click', e => {
+            updateFormData(body.Head.name)
+        })
+        scene.add(headMesh)
+
+        // abdomen
+        const abdomenMesh = new THREE.Mesh(nodeGeometry, nodeMaterial)
+        abdomenMesh.position.set(0, 0.7, 0.25)
+        abdomenMesh.name = body.Abdomen.name
+        DomEvents.addEventListener(abdomenMesh, 'click', e => {
+            updateFormData(body.Abdomen.name)
+        })
+        scene.add(abdomenMesh)
+
+        // arms
+        const armsMesh = new THREE.Mesh(nodeGeometry, nodeMaterial)
+        armsMesh.position.set(-0.7, 0.7, -0.05)
+        armsMesh.name = body.Arms.name
+        DomEvents.addEventListener(armsMesh, 'click', e => {
+            updateFormData(body.Arms.name)
+        })
+        scene.add(armsMesh)
+
+        // hands
+        const handsMesh = new THREE.Mesh(nodeGeometry, nodeMaterial)
+        handsMesh.position.set(0.9, 0, 0.1)
+        handsMesh.name = body.Hands.name
+        DomEvents.addEventListener(handsMesh, 'click', e => {
+            updateFormData(body.Hands.name)
+        })
+        scene.add(handsMesh)
+
+        // legs
+        const legsMesh = new THREE.Mesh(nodeGeometry, nodeMaterial)
+        legsMesh.position.set(-0.25, -0.5, 0.2)
+        legsMesh.name = body.Legs.name
+        DomEvents.addEventListener(legsMesh, 'click', e => {
+            updateFormData(body.Legs.name)
+        })
+        scene.add(legsMesh)
+
+        // feet
+        const feetMesh = new THREE.Mesh(nodeGeometry, nodeMaterial)
+        feetMesh.position.set(0.3, -1.8, 0.2)
+        feetMesh.name = body.Feet.name
+        DomEvents.addEventListener(feetMesh, 'click', e => {
+            updateFormData(body.Feet.name)
+        })
+        scene.add(feetMesh)
+
+        // back
+        const backMesh = new THREE.Mesh(nodeGeometry, nodeMaterial)
+        backMesh.position.set(0, 1.2, -0.4)
+        backMesh.name = body.Back.name
+        DomEvents.addEventListener(backMesh, 'click', e => {
+            updateFormData(body.Back.name)
+        })
+        scene.add(backMesh)
+
+
+        // overview
+        const loader = new GLTFLoader();
+        // loader.load('models/femaleBody.glb', gltf => {
+        //     const femaleOverviewMesh = gltf.scene.children.find(child => child.name === 'Realistic_White_Female_Low_Poly')
+        //     let scaleFactor = 0.06
+        //     femaleOverviewMesh.scale.set(femaleOverviewMesh.scale.x * scaleFactor, femaleOverviewMesh.scale.y * scaleFactor, femaleOverviewMesh.scale.z * scaleFactor)
+        //     femaleOverviewMesh.position.y -= 2
+        //     femaleOverviewMesh.name = "femaleOverview"
+        //     femaleOverviewMesh.visible = false
+
+        //     scene.add(femaleOverviewMesh)
+        // })
+
+        loader.load('models/maleBody.glb', gltf => {
+            const maleOverviewMesh = gltf.scene.children.find(child => child.name === 'Realistic_White_Male_Low_Poly')
+            let scaleFactor = 0.06
+            maleOverviewMesh.scale.set(maleOverviewMesh.scale.x * scaleFactor, maleOverviewMesh.scale.y * scaleFactor, maleOverviewMesh.scale.z * scaleFactor)
+            maleOverviewMesh.position.y -= 2
+            maleOverviewMesh.name = "maleOverview"
+            maleOverviewMesh.visible = true
+
+            scene.add(maleOverviewMesh)
+        })
+
+        loader.load('models/maleMuscular.glb', gltf => {
+            const maleMuscularMesh = gltf.scene.children.find(child => child.name === 'muscular')
+            let scaleFactor = 0.06
+            maleMuscularMesh.scale.set(maleMuscularMesh.scale.x * scaleFactor, maleMuscularMesh.scale.y * scaleFactor, maleMuscularMesh.scale.z * scaleFactor)
+            maleMuscularMesh.position.y = -2
+            maleMuscularMesh.name = "maleMuscular"
+            maleMuscularMesh.visible = false
+            
+            scene.add(maleMuscularMesh)
+        })
+
+        loader.load('models/maleSkeleton.glb', gltf => {
+            const maleSkeletonMesh = gltf.scene.children.find(child => child.name === 'skeleton')
+            let scaleFactor = 0.32
+            maleSkeletonMesh.scale.set(maleSkeletonMesh.scale.x * scaleFactor, maleSkeletonMesh.scale.y * scaleFactor, maleSkeletonMesh.scale.z * scaleFactor)
+            maleSkeletonMesh.position.y = -2
+            maleSkeletonMesh.name = "maleSkeleton"
+            maleSkeletonMesh.visible = false
+
+            scene.add(maleSkeletonMesh)
+        })
+
+        // LIGHTS
+        const frontLight = new THREE.PointLight(0xffffff, 1, 100)
+        frontLight.position.set(0, 2, 4)
+        scene.add(frontLight)
+        const backLight = new THREE.PointLight(0xffffff, 1, 100)
+        backLight.position.set(0, 2, -4)
+        scene.add(backLight)
+
+        // for orbit controls (being able to drag camera)
+        const controls = new OrbitControls(camera, renderer.domElement)
+        controls.update()
+
+        function animate() {
+            renderer.render( scene, camera );
+
+            requestAnimationFrame( animate );
+        }
+        animate();
+
+        // makes the render window responsive (resizes correctly)
+        window.addEventListener('resize', () => {
+            sizes.width = renderWindow.clientWidth
+            sizes.height = renderWindow.clientHeight
+            camera.aspect = sizes.width / sizes.height
+            camera.updateProjectionMatrix()
+            renderer.setSize(sizes.width, sizes.height)
+        })
+
+        // TODO: change node placement
+        // tab events for changing visibility of models
+        document.getElementById('overview-tab').addEventListener('click', e => {
+            scene.getObjectByName('maleOverview').visible = true
+            scene.getObjectByName('maleMuscular').visible = false
+            scene.getObjectByName('maleSkeleton').visible = false
+        })
+
+        document.getElementById('muscular-tab').addEventListener('click', e => {
+            scene.getObjectByName('maleOverview').visible = false
+            scene.getObjectByName('maleMuscular').visible = true
+            scene.getObjectByName('maleSkeleton').visible = false
+        })
+
+        document.getElementById('skeletal-tab').addEventListener('click', e => {
+            scene.getObjectByName('maleOverview').visible = false
+            scene.getObjectByName('maleMuscular').visible = false
+            scene.getObjectByName('maleSkeleton').visible = true
+        })
+
+        // listener to populate view form data modal when clicked
+        document.getElementById('view-form-data-button').addEventListener('click', e => {
+            saveCurrentBodyPartData();
+
+            let textField = document.getElementById('display-form-data-body')
+            textField.innerHTML = `<h5 class="mb-4">Email Address: ${email}</h5>`
+
+            bodyParts.forEach(bodyPartName => {
+                let bodyPart = body[bodyPartName]
+                textField.innerHTML += `<h5>${bodyPartName}:</h5>
+                                        <ul class="list-unstyled">
+                                            <li>Level of Pain: <b>${bodyPart.level}</b></li>
+                                            <li>Sharpness of Pain: <b>${bodyPart.sharpness}</b></li>
+                                            <li>Symptom Description: <b>${bodyPart.symptomDescription}</b></li>
+                                            <li>Symptom Length: <b>${bodyPart.symptonLength}</b></li>
+                                        </ul>`
+            })
+        })
+
+        // listener on body part select to change form data on state change
+        bodyPartSelect.addEventListener('change', () => {
+            updateFormData(bodyPartSelect.value)
+        })
+
+        // listener on clear data button
+        document.getElementById('clear-form-button').addEventListener('click', e => {
+            InitilializeBodyObject()    // resets form data state object to default values
+
+            let levelRange = document.getElementById('level-range')
+            let descriptionField = document.getElementById('description-field')
+            let lengthField = document.getElementById('length-field')            
+
+            // reset form values
+            levelSlider.setValue(0)
+            sharpnessSlider.setValue(0)
+            descriptionField.value = ""
+            lengthField.value = ""
+            bodyPartSelect.value = body.Head.name
+
+            currentBodyPart = body.Head.name
+        })
+
+        // listener on download button
+        document.getElementById('download-button').addEventListener('click', e => {
+            saveCurrentBodyPartData()
+
+            let downloadAnchor = document.getElementById('download-anchor')
+            let fileText = JSON.stringify(body)
+            let file = new Blob([fileText], { type: 'text/plain' })
+            downloadAnchor.href = URL.createObjectURL(file)
+            downloadAnchor.download = 'form-data.json'
+            downloadAnchor.click()
+        })
+
+        // listener on reset camera button
+        document.getElementById('reset-camera-button').addEventListener('click', e => {
+            controls.reset()
+        })
+
+    </script>
         
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
