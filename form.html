@@ -174,7 +174,8 @@
     </script>
 
     <!-- For Overview Model -->
-    <script src='./node_modules/three/build/three.min.js'></script> <!-- This script tag allows threex to work -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+    <!-- <script src='./node_modules/three/build/three.min.js'></script> -->
     <script src="./threex.domevents.js"></script>
     <script type="module">
         // parse body type and email
@@ -328,7 +329,7 @@
         // overview
         const loader = new GLTFLoader();
         if (!isMaleBodyType) { 
-            loader.load('models/femaleBody.glb', gltf => {
+            loader.load('./public/models/femaleBody.glb', gltf => {
                 const femaleOverviewMesh = gltf.scene.children.find(child => child.name === 'Realistic_White_Female_Low_Poly')
                 let scaleFactor = 0.06
                 femaleOverviewMesh.scale.set(femaleOverviewMesh.scale.x * scaleFactor, femaleOverviewMesh.scale.y * scaleFactor, femaleOverviewMesh.scale.z * scaleFactor)
@@ -338,7 +339,7 @@
                 scene.add(femaleOverviewMesh)
             })
 
-            loader.load('models/femaleMuscular.glb', gltf => {
+            loader.load('./public/models/femaleMuscular.glb', gltf => {
                 const femaleMuscularMesh = gltf.scene.children.find(child => child.name === 'muscular')
                 let scaleFactor = 0.06
                 femaleMuscularMesh.scale.set(femaleMuscularMesh.scale.x * scaleFactor, femaleMuscularMesh.scale.y * scaleFactor, femaleMuscularMesh.scale.z * scaleFactor)
@@ -361,7 +362,7 @@
 
 
         if (isMaleBodyType) {
-            loader.load('models/maleBody.glb', gltf => {
+            loader.load('./public/models/maleBody.glb', gltf => {
                 const maleOverviewMesh = gltf.scene.children.find(child => child.name === 'Realistic_White_Male_Low_Poly')
                 let scaleFactor = 0.06
                 maleOverviewMesh.scale.set(maleOverviewMesh.scale.x * scaleFactor, maleOverviewMesh.scale.y * scaleFactor, maleOverviewMesh.scale.z * scaleFactor)
@@ -371,7 +372,7 @@
                 scene.add(maleOverviewMesh)
             })
 
-            loader.load('models/maleMuscular.glb', gltf => {
+            loader.load('./public/models/maleMuscular.glb', gltf => {
                 const maleMuscularMesh = gltf.scene.children.find(child => child.name === 'muscular')
                 let scaleFactor = 0.06
                 maleMuscularMesh.scale.set(maleMuscularMesh.scale.x * scaleFactor, maleMuscularMesh.scale.y * scaleFactor, maleMuscularMesh.scale.z * scaleFactor)
@@ -395,7 +396,7 @@
 
 
 
-        loader.load('models/maleSkeleton.glb', gltf => {
+        loader.load('./public/models/maleSkeleton.glb', gltf => {
             const maleSkeletonMesh = gltf.scene.children.find(child => child.name === 'skeleton')
             let scaleFactor = 0.32
             maleSkeletonMesh.scale.set(maleSkeletonMesh.scale.x * scaleFactor, maleSkeletonMesh.scale.y * scaleFactor, maleSkeletonMesh.scale.z * scaleFactor)
