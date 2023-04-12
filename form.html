@@ -9,6 +9,13 @@
     <!-- boostrap slider -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css" integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- sets bootstrap slider width to 100% -->
+    <style>
+        .slider {
+            width: 100% !important
+        }
+    </style>
 </head>
 <body>
     <!-- Start Navbar -->
@@ -80,12 +87,12 @@
                     </div>
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-3 mb-2">
                                 <div>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#clearModal">Clear Form</button>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <div class="d-flex justify-content-md-end">
                                     <button type="button" class="btn btn-secondary mr-2" data-toggle="modal" id="reset-camera-button">Reset Camera</button>
                                     <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#viewModal" id="view-form-data-button">View Form Data</button>
