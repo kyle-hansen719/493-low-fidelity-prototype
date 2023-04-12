@@ -23,7 +23,7 @@
                     <a class="nav-link active" href="./index.html">Landing Page</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./form.html">Form</a>
+                    <a class="nav-link disabled" href="./form.html">Form</a>
                 </li>
             </ul>
         </div>
@@ -45,21 +45,25 @@
         <p>Select a body type that best works for you.</p>
     </div>
 
-    <div class="container pics">
-        <div class="row w-75 mb-3">
-            <div class="col-6">
-                <div id="body1Canvas" class="mb-3" style="height: 400px;"></div>
-                <div class="text-center">
-                    <div class="btn btn-primary" id="male-button">
-                        Select
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <div id="body1Canvas" class="mb-3" style="height: 400px;"></div>
+                        <div class="text-center">
+                            <div class="btn btn-primary" id="male-button">
+                                Select
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <div id="body2Canvas" class="mb-3" style="height: 400px;"></div>
-                <div class="text-center">
-                    <div class="btn btn-outline-primary" id="female-button">
-                        Select
+                    <div class="col-6">
+                        <div id="body2Canvas" class="mb-3" style="height: 400px;"></div>
+                        <div class="text-center">
+                            <div class="btn btn-outline-primary" id="female-button">
+                                Select
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -247,9 +251,6 @@
                 currentSelectedBody = MALE
             }
         }
-
-        //document.getElementById('body-type-field').value = "3"
     </script>
-
 </body>
 </html>

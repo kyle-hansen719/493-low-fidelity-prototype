@@ -50,7 +50,7 @@
                         <!-- Tab Content -->
                         <div class="row">
                             <div class="col-lg-8 d-flex justify-content-center">
-                                <div id="overviewCanvas" class="w-100" style="height: 600px;"></div>
+                                <div id="overviewCanvas" class="w-100 mb-3" style="height: 600px;"></div>
                             </div>
                             <!-- Form Content -->
                             <div class="col-lg-4">
@@ -59,9 +59,9 @@
 
                                 <form class="mt-3">
                                   <label for="level-range">Level of Pain</label>
-                                  <input id="level-range" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+                                  <div><input id="level-range" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/></div>
                                   <label for="sharpness-range" class="mt-3">Sharpness of Pain</label>
-                                  <input id="sharpness-range" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/>
+                                  <div><input id="sharpness-range" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="0"/></div>
 
                                   <div class="form-group mt-3 mb-2">
                                     <label for="description-field">Please briefly describe your symptoms.</label>
@@ -383,6 +383,8 @@
                 scene.add(maleMuscularMesh)
             })
 
+
+
             headMesh.position.set(0, 2.2, 0.25)
             abdomenMesh.position.set(0, 0.7, 0.25)
             armsMesh.position.set(-0.7, 0.7, -0.05)
@@ -394,11 +396,9 @@
         }
 
 
-
-
         loader.load('./public/models/maleSkeleton.glb', gltf => {
             const maleSkeletonMesh = gltf.scene.children.find(child => child.name === 'skeleton')
-            let scaleFactor = 0.32
+            let scaleFactor = isMaleBodyType ? 0.32 : 0.3   // scales skeleton depending on male or female
             maleSkeletonMesh.scale.set(maleSkeletonMesh.scale.x * scaleFactor, maleSkeletonMesh.scale.y * scaleFactor, maleSkeletonMesh.scale.z * scaleFactor)
             maleSkeletonMesh.position.y = -2
             maleSkeletonMesh.name = "skeleton"
@@ -406,6 +406,8 @@
 
             scene.add(maleSkeletonMesh)
         })
+
+
 
         // LIGHTS
         const frontLight = new THREE.PointLight(0xffffff, 1, 100)
