@@ -5,6 +5,8 @@ EECS 493 Prototype
 
 This system was built as the final project for EECS 493. It allows a hospital patient to remotely enter symptoms and pain points into a 3D model that can be sent to a doctor.
 
+The system is hosted on github pages [Here](https://kyle-hansen719.github.io/493-low-fidelity-prototype/)
+
 ## Running the System Locally
 
 1. Clone the repo
