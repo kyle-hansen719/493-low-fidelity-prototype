@@ -8,8 +8,9 @@ This system was built as the final project for EECS 493. It allows a hospital pa
 ## Running the System Locally
 
 1. Clone the repo
-2. Run 'npm run dev' in your terminal (requires npm is installed)
-3. Navigate to the localhost source in your browser
+2. Run 'npm install' in your terminal to download project dependencies (requires npm is installed)
+3. Run 'npm run dev'
+4. Navigate to the localhost source in your browser
 
 ## Libraries/Models used:
 
