@@ -283,12 +283,19 @@
         DomEvents.addEventListener(headMesh, 'click', e => {
             updateFormData(body.Head.name)
         })
+        DomEvents.addEventListener(headMesh, 'touchstart', e => {
+            updateFormData(body.Head.name)
+        })
+
         scene.add(headMesh)
 
         // abdomen
         const abdomenMesh = new THREE.Mesh(nodeGeometry, nodeMaterial)
         abdomenMesh.name = body.Abdomen.name
         DomEvents.addEventListener(abdomenMesh, 'click', e => {
+            updateFormData(body.Abdomen.name)
+        })
+        DomEvents.addEventListener(abdomenMesh, 'touchstart', e => {
             updateFormData(body.Abdomen.name)
         })
         scene.add(abdomenMesh)
@@ -299,12 +306,18 @@
         DomEvents.addEventListener(armsMesh, 'click', e => {
             updateFormData(body.Arms.name)
         })
+        DomEvents.addEventListener(armsMesh, 'touchstart', e => {
+            updateFormData(body.Arms.name)
+        })
         scene.add(armsMesh)
 
         // hands
         const handsMesh = new THREE.Mesh(nodeGeometry, nodeMaterial)
         handsMesh.name = body.Hands.name
         DomEvents.addEventListener(handsMesh, 'click', e => {
+            updateFormData(body.Hands.name)
+        })
+        DomEvents.addEventListener(handsMesh, 'touchstart', e => {
             updateFormData(body.Hands.name)
         })
         scene.add(handsMesh)
@@ -315,6 +328,9 @@
         DomEvents.addEventListener(legsMesh, 'click', e => {
             updateFormData(body.Legs.name)
         })
+        DomEvents.addEventListener(legsMesh, 'touchstart', e => {
+            updateFormData(body.Legs.name)
+        })
         scene.add(legsMesh)
 
         // feet
@@ -323,12 +339,18 @@
         DomEvents.addEventListener(feetMesh, 'click', e => {
             updateFormData(body.Feet.name)
         })
+        DomEvents.addEventListener(feetMesh, 'touchstart', e => {
+            updateFormData(body.Feet.name)
+        })
         scene.add(feetMesh)
 
         // back
         const backMesh = new THREE.Mesh(nodeGeometry, nodeMaterial)
         backMesh.name = body.Back.name
         DomEvents.addEventListener(backMesh, 'click', e => {
+            updateFormData(body.Back.name)
+        })
+        DomEvents.addEventListener(backMesh, 'touchstart', e => {
             updateFormData(body.Back.name)
         })
         scene.add(backMesh)
