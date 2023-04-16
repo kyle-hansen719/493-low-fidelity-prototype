@@ -145,6 +145,7 @@
 
         // for orbit controls (being able to drag camera)
         const controls = new OrbitControls(camera, renderer.domElement)
+        controls.enableZoom = false;
         controls.update()
 
 
@@ -189,6 +190,7 @@
 
         // for orbit controls (being able to drag camera)
         const controls2 = new OrbitControls(camera2, renderer2.domElement)
+        controls2.enableZoom = false;
         controls2.update()
 
         // ------------------------------
