@@ -524,17 +524,27 @@
             sharpnessSlider.setValue(0)
             descriptionField.value = ""
             lengthField.value = ""
-            bodyPartSelect.value = body.Head.name
 
-            currentBodyPart = body.Head.name
+            updateFormData(body.Head.name)
         })
 
         // listener on download button
         document.getElementById('download-button').addEventListener('click', e => {
             saveCurrentBodyPartData()
 
+            // make an object that is body without the "name" fields
+            let bodyForDownload = { "email address": email }
+            bodyParts.forEach(bodyPart => {
+                bodyForDownload[bodyPart] = { 
+                    "pain level": body[bodyPart].level, 
+                    "pain sharpness": body[bodyPart].sharpness, 
+                    "symptom description": body[bodyPart].symptomDescription,
+                    "symptom duration": body[bodyPart].symptonLength 
+                }
+            })
+
             let downloadAnchor = document.getElementById('download-anchor')
-            let fileText = JSON.stringify(body)
+            let fileText = JSON.stringify(bodyForDownload)
             let file = new Blob([fileText], { type: 'text/plain' })
             downloadAnchor.href = URL.createObjectURL(file)
             downloadAnchor.download = 'form-data.json'
